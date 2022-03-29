@@ -33,6 +33,7 @@ namespace DTC.UI.Aircrafts.F16
 			}
 			else
 			{
+				openFileDlg.Filter = "All files (*.*)|*.*|XML files (*.xml)|*.xml|JSON files (*.json)|*.json";
 				if (openFileDlg.ShowDialog() == DialogResult.OK)
 				{
 					var file = FileStorage.LoadFile(openFileDlg.FileName);

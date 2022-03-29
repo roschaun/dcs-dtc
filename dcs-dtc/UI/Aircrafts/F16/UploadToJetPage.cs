@@ -42,11 +42,20 @@ namespace DTC.UI.Aircrafts.F16
 			return "Upload to Jet";
 		}
 
+		public override void SetVisible(bool visible)
+		{
+			Visible = visible;
+			_cfg.Waypoints.SetSteerpointEnd(_cfg.Waypoints != null ? (_cfg.Waypoints.getCount() + 1) : 20);
+			_parent.DataChangedCallback();
+			txtWaypointStart.Text = _cfg.Waypoints.SteerpointStart.ToString();
+			txtWaypointEnd.Text = _cfg.Waypoints.SteerpointEnd.ToString();
+		}
+
 		private void TxtWaypointEnd_LostFocus(object sender, EventArgs e)
 		{
 			if (int.TryParse(txtWaypointEnd.Text, out int n))
 			{
-				_cfg.Waypoints.SetSteerpointEnd(n);
+				_cfg.Waypoints.SetSteerpointEnd(_cfg.Waypoints != null ? (_cfg.Waypoints.getCount() + 1) : n);
 				_parent.DataChangedCallback();
 			}
 

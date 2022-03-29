@@ -54,7 +54,7 @@ namespace DTC.UI.CommonPages
 			{
 				ctl.Visible = false;
 			}
-			page.Visible = true;
+			page.SetVisible(true);
 		}
 
 		public void ToggleEnabled()

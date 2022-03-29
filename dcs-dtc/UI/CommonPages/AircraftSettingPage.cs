@@ -22,5 +22,11 @@ namespace DTC.UI.CommonPages
 		{
 			return "";
 		}
+
+		public virtual void SetVisible(bool visible)
+		{
+			Visible = visible;
+		}
+
 	}
 }
